@@ -43,7 +43,7 @@ fun BorderlessTextField(
                 fontFamily = poppinsFontFamily,
                 fontWeight = FontWeight.SemiBold
             ) },
-        singleLine = false,
+        singleLine = true,
         keyboardOptions = KeyboardOptions(
             keyboardType = keyboardType,
             imeAction = imeAction

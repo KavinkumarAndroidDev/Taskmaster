@@ -41,6 +41,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -103,14 +104,19 @@ fun AddTask(){
         }
     ) { it ->
         val focusRequester = remember { FocusRequester() }
-        var inputText by remember { mutableStateOf("") }
+        var inputText by remember { mutableStateOf("Add your title") }
         Column(modifier = Modifier
             .padding(16.dp)
             .fillMaxSize()
             .padding(it)) {
             BorderlessTextField(
                 value = inputText,
-                txtStyle = MaterialTheme.typography.titleLarge,
+                txtStyle = TextStyle(
+                    fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                    fontWeight = FontWeight.Medium,
+                    color = AppTheme.colorScheme.onBackground,
+                    fontFamily = poppinsFontFamily
+                ),
                 onValueChange = {
                     inputText = it
                 },
@@ -119,7 +125,12 @@ fun AddTask(){
             BasicTextField(
                 value = "title",
                 onValueChange = {},
-                textStyle = MaterialTheme.typography.bodyMedium,
+                textStyle = TextStyle(
+                    fontSize = MaterialTheme.typography.bodyMedium.fontSize,
+                    fontFamily = poppinsFontFamily,
+                    color = AppTheme.colorScheme.onBackground,
+                    fontWeight = FontWeight.Medium
+                ),
                 singleLine = false,
                 modifier = Modifier
                     .fillMaxWidth()
